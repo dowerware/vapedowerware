@@ -1,1 +1,0 @@
-return loadstring(game:HttpGet("https://raw.githubusercontent.com/dowerware/vapedowerware/main/NewMainScript.lua", true))()
