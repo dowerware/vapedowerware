@@ -326,7 +326,7 @@ local Profiles = GuiLibrary.CreateWindow2({
 --- pro moment eeheasdalsdjlasjkjd
 task.spawn(function()
 	pcall(function()
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/vapevoidware/main/Libraries/idklol.lua", true))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/dowerware/vapedowerware/main/Libraries/idklol.lua", true))()
 	end)
 end)
 GUI.CreateDivider()
@@ -749,13 +749,13 @@ OnlineProfilesButton.MouseButton1Click:Connect(function()
 		local onlineprofiles = {}
 		local saveplaceid = tostring(shared.CustomSaveVape or game.PlaceId)
         local success, result = pcall(function()
-            return game:GetService("HttpService"):JSONDecode(game:HttpGet("https://raw.githubusercontent.com/Erchobg/VapeProfiles/main/Profiles/"..saveplaceid.."/profilelist.txt", true))
+            return game:GetService("HttpService"):JSONDecode(game:HttpGet("https://raw.githubusercontent.com/dowerware/dowerwareprofiles/main/Profiles/"..saveplaceid.."/profilelist.txt", true))
         end)
 		for i,v in pairs(success and result or {}) do 
 			onlineprofiles[i] = v
 		end
 		for i2,v2 in pairs(onlineprofiles) do
-			local profileurl = "https://raw.githubusercontent.com/Erchobg/VapeProfiles/main/Profiles/"..saveplaceid.."/"..v2.OnlineProfileName
+			local profileurl = "https://raw.githubusercontent.com/dowerware/dowerwareprofiles/main/Profiles/"..saveplaceid.."/"..v2.OnlineProfileName
 			local profilebox = Instance.new("Frame")
 			profilebox.BackgroundColor3 = Color3.fromRGB(31, 30, 31)
 			profilebox.Parent = OnlineProfilesList
@@ -1845,7 +1845,7 @@ if not shared.NoAutoExecute then
 				if shared.VapeDeveloper then 
 					loadstring(readfile("vape/NewMainScript.lua"))() 
 				else 
-					loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/vapevoidware/main/NewMainScript.lua", true))()
+					loadstring(game:HttpGet("https://raw.githubusercontent.com/dowerware/vapedowerware/main/NewMainScript.lua", true))()
 				end
 			]]
 			if shared.VapeDeveloper then
@@ -2011,7 +2011,7 @@ local function loadVape()
 			loadstring(readfile("vape/CustomModules/"..game.PlaceId..".lua"))()
 		else
 			if not shared.VapeDeveloper then
-				local suc, publicrepo = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/vapevoidware/"..readfile("vape/commithash.txt").."/CustomModules/"..game.PlaceId..".lua") end)
+				local suc, publicrepo = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/dowerware/vapedowerware/"..readfile("vape/commithash.txt").."/CustomModules/"..game.PlaceId..".lua") end)
 				if suc and publicrepo and publicrepo ~= "404: Not Found" then
 					writefile("vape/CustomModules/"..game.PlaceId..".lua", "--This watermark is used to delete the file if its cached, remove it to make the file persist after commits.\n"..publicrepo)
 					loadstring(readfile("vape/CustomModules/"..game.PlaceId..".lua"))()
