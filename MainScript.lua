@@ -216,7 +216,7 @@ if not isfile("vape/CustomModules/cachechecked.txt") then
 				if isfile(v) and not readfile(v):find("--This watermark is used to delete the file if its cached, remove it to make the file persist after commits.") then
 					local last = v:split('\\')
 					last = last[#last]
-					local suc, publicrepo = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/vapevoidware/"..readfile("vape/commithash.txt").."/CustomModules/"..last) end)
+					local suc, publicrepo = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/Vape/vape/"..readfile("vape/commithash.txt").."/CustomModules/"..last) end)
 					if suc and publicrepo and publicrepo ~= "404: Not Found" then
 						writefile("vape/CustomModules/"..last, "--This watermark is used to delete the file if its cached, remove it to make the file persist after commits.\n"..publicrepo)
 					end
@@ -288,8 +288,8 @@ local World = GuiLibrary.CreateWindow({
 	Icon = "vape/assets/WorldIcon.png", 
 	IconSize = 16
 })
-local Voidware = GuiLibrary.CreateWindow({
-	Name = "Voidware", 
+local  = GuiLibrary.CreateWindow({
+	Name = "", 
 	Icon = "vape/assets/UtilityIcon.png", 
 	IconSize = 17
 })
@@ -298,8 +298,8 @@ local GameScripts = GuiLibrary.CreateWindow({
 	Icon = "vape/assets/HoverArrow2.png", 
 	IconSize = 17
 })
-local VoidwareDev = GuiLibrary.CreateWindow({
-	Name = "VoidwareDev", 
+local Dev = GuiLibrary.CreateWindow({
+	Name = "Dev", 
 	Icon = "vape/assets/HoverArrow2.png", 
 	IconSize = 17
 })
@@ -361,8 +361,8 @@ GUI.CreateButton({
 	IconSize = 16
 })
 GUI.CreateButton({
-	Name = "Voidware", 
-	Function = function(callback) Voidware.SetVisible(callback) end, 
+	Name = "", 
+	Function = function(callback) .SetVisible(callback) end, 
 	Icon = "vape/assets/UtilityIcon.png", 
 	IconSize = 17
 })
@@ -373,8 +373,8 @@ GUI.CreateButton({
 })
 GUI.CreateDivider("Other")
 GUI.CreateButton({
-	Name = "VoidwareDev", 
-	Function = function(callback) VoidwareDev.SetVisible(callback) end, 
+	Name = "Dev", 
+	Function = function(callback) Dev.SetVisible(callback) end, 
 })
 GUI.CreateButton({
 	Name = "MobileSupport", 
@@ -1612,7 +1612,7 @@ local ExtraModeToggle = GUI.CreateToggle({
 --[[local ChangesDetectorToggle = GUI.CreateToggle({
 	Name = "Changes Detector",
 	Function = function() end,
-	HoverText = "Notifies you if anything gets added/removed in Voidware."
+	HoverText = "Notifies you if anything gets added/removed in ."
 })--]]
 local windowSortOrder = {
 	CombatButton = 1,
@@ -1620,13 +1620,13 @@ local windowSortOrder = {
 	RenderButton = 3,
 	UtilityButton = 4,
 	WorldButton = 5,
-	VoidwareButton = 6,
+	Button = 6,
 	CustomScriptsButton = 7,
 	FriendsButton = 8,
 	TargetsButton = 9,
 	ProfilesButton = 10
 }
-local windowSortOrder2 = {"Combat", "Blatant", "Render", "Utility", "World", "Voidware", "CustomScripts"}
+local windowSortOrder2 = {"Combat", "Blatant", "Render", "Utility", "World", "", "CustomScripts"}
 
 local function getVapeSaturation(val)
 	local sat = 0.9
@@ -1960,7 +1960,7 @@ GUISettings.CreateButton2({
 			RenderWindow = 4,
 			UtilityWindow = 5,
 			WorldWindow = 6,
-			VoidwareWindow = 7,
+			Window = 7,
 			CustomScriptsWindow = 8,
 			FriendsWindow = 9,
 			TargetsWindow = 10,
